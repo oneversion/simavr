@@ -1,9 +1,21 @@
+# Binary Executables
+
+simavr/simavr
+simavr/run_avr
+
+# Documentation
+
+*.aux
+*.log
+*.out
+*.toc
+
+# Misc
+
 obj-*
 *.axf
 *.hex
 *.s
-simavr/simavr
-simavr/run_avr
 *.a
 .tags*
 ._*
