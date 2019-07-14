@@ -38,20 +38,22 @@ display_usage(
 	const char * app)
 {
 	printf("Usage: %s [...] <firmware>\n", app);
-	printf( "		[--freq|-f <freq>]  Sets the frequency for an .hex firmware\n"
-			"		[--mcu|-m <device>] Sets the MCU type for an .hex firmware\n"
-			"       [--list-cores]      List all supported AVR cores and exit\n"
-			"       [--help|-h]         Display this usage message and exit\n"
-			"       [--trace, -t]       Run full scale decoder trace\n"
-			"       [-ti <vector>]      Add traces for IRQ vector <vector>\n"
-			"       [--gdb|-g]          Listen for gdb connection on port 1234\n"
-			"       [-ff <.hex file>]   Load next .hex file as flash\n"
-			"       [-ee <.hex file>]   Load next .hex file as eeprom\n"
-			"       [--input|-i <file>] A .vcd file to use as input signals\n"
-			"       [-v]                Raise verbosity level\n"
-			"                           (can be passed more than once)\n"
-			"       <firmware>          A .hex or an ELF file. ELF files are\n"
-			"                           prefered, and can include debugging syms\n");
+	printf( "       [--freq|-f <freq>]                      Sets the frequency for an .hex firmware\n"
+			"       [--mcu|-m <device>]                     Sets the MCU type for an .hex firmware\n"
+			"       [--list-cores]                          List all supported AVR cores and exit\n"
+			"       [--help|-h]                             Display this usage message and exit\n"
+			"       [--trace, -t]                           Run full scale decoder trace\n"
+			"       [-ti <vector>]                          Add traces for IRQ vector <vector>\n"
+			"       [--gdb|-g]                              Listen for gdb connection on port 1234\n"
+			"       [-ff <.hex file>]                       Load next .hex file as flash\n"
+			"       [-ee <.hex file>]                       Load next .hex file as eeprom\n"
+			"       [--input|-i <file>]                     A .vcd file to use as input signals\n"
+			"       [--add-vcd-trace <name=kind@addr/mask>] Write a VCD trace file for the given specification\n"
+			"       [--vcd-trace-file <filename>]           Set the name of the VCD trace file\n"
+			"       [-v]                                    Raise verbosity level\n"
+			"                                               (can be passed more than once)\n"
+			"       <firmware>                              A .hex or an ELF file. ELF files are\n"
+			"                                               prefered, and can include debugging syms\n");
 	exit(1);
 }
 
