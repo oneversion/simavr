@@ -35,7 +35,7 @@
 
 static void
 display_usage(
-	const char * app)
+	const char *app)
 {
 	printf("Usage: %s [...] <firmware>\n", app);
 	printf( "       [--freq|-f <freq>]                      Sets the frequency for an .hex firmware\n"
@@ -48,7 +48,7 @@ display_usage(
 			"       [-ff <.hex file>]                       Load next .hex file as flash\n"
 			"       [-ee <.hex file>]                       Load next .hex file as eeprom\n"
 			"       [--input|-i <file>]                     A .vcd file to use as input signals\n"
-			"       [--add-vcd-trace <name=kind@addr/mask>] Write a VCD trace file for the given specification\n"
+			"       [--add-vcd-trace <name=kind@addr/mask>] Write a VCD trace file for the given specification. `kind` = <portpin|trace|irq>\n"
 			"       [--vcd-trace-file <filename>]           Set the name of the VCD trace file\n"
 			"       [-v]                                    Raise verbosity level\n"
 			"                                               (can be passed more than once)\n"
@@ -83,9 +83,7 @@ sig_int(
 }
 
 int
-main(
-		int argc,
-		char *argv[])
+main(int argc, char *argv[])
 {
 	elf_firmware_t f = {{0}};
 	uint32_t f_cpu = 0;
@@ -131,6 +129,7 @@ main(
 			++pi;
 			snprintf(f.tracename, sizeof(f.tracename), "%s",  argv[pi]);
 		} else if (!strcmp(argv[pi], "--add-vcd-trace")) {
+
 			if (pi + 1 >= argc) {
 				fprintf(stderr, "%s: missing mandatory argument for %s.\n", argv[0], argv[pi]);
 				exit(1);
@@ -187,6 +186,7 @@ main(
 			);
 
 			++f.tracecount;
+
 		} else if (!strcmp(argv[pi], "--vcd-trace-file")) {
 			if (pi + 1 >= argc) {
 				fprintf(stderr, "%s: missing mandatory argument for %s.\n", argv[0], argv[pi]);

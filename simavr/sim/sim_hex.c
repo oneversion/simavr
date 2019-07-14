@@ -45,7 +45,7 @@ void hdump(const char *w, uint8_t *b, size_t l)
 	printf("\n");
 }
 
-    // decode line text hex to binary
+// decode line text hex to binary
 int read_hex_string(const char * src, uint8_t * buffer, int maxlen)
 {
     uint8_t * dst = buffer;
